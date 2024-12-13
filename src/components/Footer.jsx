@@ -28,7 +28,7 @@ export const Footer = () => {
                 </div>
             </div>
             <div className="bg-zinc-800">
-                    <div className='w-full py-2 text-center justify-center text-gray-500'>© 2024 | SP Digital Todos los derechos reservados | Desarrollado con 💚 por <a href='https://github.com/matias2r'>Matias Espinoza</a></div>
+                    <div className='w-full py-2 text-center justify-center text-gray-500'>© 2024 | SP Digital Todos los derechos reservados | Desarrollado con 💚 por <a className='font-bold hover:text-indigo-500' href='https://github.com/matias2r'>Matias Espinoza</a></div>
             </div>
         </footer>
     );

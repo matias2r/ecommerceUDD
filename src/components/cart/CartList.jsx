@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { CartContext } from "../../context/Cart/cartContext"
 import { CartItem } from "./Cartitem"
+import { Link } from 'react-router-dom'
 
 export const CartList = () => {
     const { cart, clearCart } = useContext(CartContext)
@@ -17,6 +18,9 @@ export const CartList = () => {
                 <div className="text-center">
                     <h2 className="text-2xl font-semibold">Tu Carrito está vacío</h2>
                     <p className="text-gray-400 mt-2">Por favor, agrega productos para verlos aquí</p>
+                    <Link to={"/"}>
+                    <button className="bg-indigo-500 px-3 py-2 mt-5 rounded text-white font-medium hover:bg-indigo-700 transition">Volver al Catálogo</button>
+                    </Link>
                 </div>
             </div>
         )

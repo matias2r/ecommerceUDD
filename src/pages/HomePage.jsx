@@ -3,6 +3,7 @@ import NaviBlack from "../assets/bannerNaviBlack.webp"
 import { Banner } from "../components/Banner"
 
 export const HomePage = () => {
+    
     return (
         <>  
         <Banner />
@@ -16,6 +17,7 @@ export const HomePage = () => {
             </h2>
             <div className="border-b-4 border-cyan-400 mt-2 w-11 mx-auto"></div>
         </div>
+        
 
 
             <ProductList />

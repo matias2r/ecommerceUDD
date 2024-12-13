@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { AuthContext } from "../../context/User/userContext";
 import { useNavigate } from "react-router-dom";
+import { ErrorLogin } from "./ErrorLogin";
 
 export const LoginForm = () => {
   const { login } = useContext(AuthContext);
@@ -96,10 +97,7 @@ export const LoginForm = () => {
           <div className="relative flex flex-col sm:w-[30rem] rounded-lg border-gray-400 bg-white shadow-lg px-4">
             <div className="flex-auto p-6">
               <div className="mb-10 flex flex-shrink-0 flex-grow-0 items-center justify-center overflow-hidden">
-                <a
-                  href="#"
-                  className="flex cursor-pointer items-center gap-2 text-indigo-500 no-underline hover:text-indigo-500"
-                >
+                <a className="flex items-center gap-2 text-indigo-500 no-underline hover:text-indigo-500">
                   <span className="flex-shrink-0 text-3xl font-black lowercase tracking-tight opacity-100">
                     Bienvenido.
                   </span>
@@ -146,7 +144,7 @@ export const LoginForm = () => {
                       type={showPassword ? "text" : "password"} // Cambia el tipo dependiendo del estado
                       name="password"
                       id="password"
-                      placeholder="············"
+                      placeholder="**********"
                       value={credentials.password}
                       onChange={handleChange}
                       required
@@ -193,7 +191,7 @@ export const LoginForm = () => {
                   </div>
                 </div>
                 <div className="mb-4">
-                  {error && <p className="form-error">{error}</p>}
+                  {error && <div className="mb-5"><ErrorLogin /></div>}
                   <button
                     className="grid w-full cursor-pointer select-none rounded-md border border-indigo-500 bg-indigo-500 py-2 px-5 text-center align-middle text-sm text-white shadow hover:border-indigo-600 hover:bg-indigo-600 hover:text-white focus:border-indigo-600 focus:bg-indigo-600 focus:text-white focus:shadow-none"
                     type="submit"
