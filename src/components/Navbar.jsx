@@ -1,10 +1,13 @@
-import { Link } from 'react-router-dom'
 import { useContext } from 'react'
-import { CartContext } from '../context/Cart/cartContext'
+import { Link } from 'react-router-dom'
+import { AuthContext } from '../context/User/userContext'
 import Logo from "../assets/logo.svg"
 
+
 export const Navbar = () => {
-  const { cartItems } = useContext(CartContext)
+
+  const { user, logout } = useContext(AuthContext)
+  
 
     return (
         <nav className="bg-indigo-950 shadow h-20 pt-6 pb-3 w-full">
@@ -20,12 +23,22 @@ export const Navbar = () => {
                 <i className="fa-solid fa-cart-shopping"></i>
               </div>
             </Link>
-
-            <Link to="/login" className="text-center text-white transition relative">
-              <div className="text-2xl">
-              <i className="fa-solid fa-user"></i>
-              </div>
-            </Link>
+            {
+              !user ? (
+                <Link to="/login" className="text-center text-white transition relative rounded-full p-2 px-3">
+                  <div className="text-2xl">
+                    <i className="fa-solid fa-user"></i>
+                  </div>
+                </Link>
+              ) : (
+                <button onClick={logout} className="text-center text-white transition relative rounded-full p-2 px-3">
+                  <div className="text-2xl">
+                    <i className="fa-solid fa-sign-out"></i>
+                    <Link to="/cart">{user.email}</Link>
+                  </div>
+                </button>
+              )
+            }
           </div>
         </div>
       </nav>

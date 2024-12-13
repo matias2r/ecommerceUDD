@@ -37,3 +37,4 @@ export const authenticate = async(credentials) => {
         throw new Error(`Credenciales Invalidas. ${error}`);
     }
 }
+

@@ -11,7 +11,7 @@ export const LoginForm = () => {
     password: "",
   });
   const [error, setError] = useState("");
-  const [showPassword, setShowPassword] = useState(false); // Estado para mostrar/ocultar la contraseña
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (event) => {
     setCredentials({
