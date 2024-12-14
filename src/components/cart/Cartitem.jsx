@@ -10,7 +10,6 @@ export const CartItem = ({ product }) => {
     
     const { removeFromCart, increaseQuantity, decreaseQuantity } = useContext(CartContext);
 
-    const total = cart.reduce((accum, product) => accum + product.price * product.quantity, 0)
 
     return (
         <>
@@ -42,7 +41,7 @@ export const CartItem = ({ product }) => {
                         </div>
 
                         <div className="w-full min-w-0 flex-1 space-y-4 md:order-2 md:max-w-md">
-                            <a href="#" className="text-base font-medium text-gray-900 hover:text-indigo-500 transition">{title}</a>
+                            <a className="text-base font-medium text-gray-900 hover:text-indigo-500 transition">{title}</a>
 
                             <div className="flex items-center gap-4">
                             <button onClick={() => removeFromCart(id)} type="button" className="inline-flex items-center text-sm font-semibold text-red-500 hover:text-red-600 transition">

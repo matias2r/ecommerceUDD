@@ -15,7 +15,7 @@ export const CartList = () => {
 
     if (!cart || cart.length === 0) {
         return (
-            <div className="cart-list empty w-full flex items-center justify-center">
+            <div className="cart-list empty w-full flex items-center justify-center mb-32 mt-20">
                 <div className="text-center">
                     <img src={emptyCart} alt="Carrito Vacío" className="mx-auto w-60 mb-12" />
                     <h2 className="text-2xl font-semibold">Tu Carrito está vacío</h2>
@@ -30,7 +30,7 @@ export const CartList = () => {
     }
 
     return (
-        <>
+        
         <section className="bg-white py-8 antialiased md:py-16">
             <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
                 <h2 className="text-xl font-bold text-gray-800 sm:text-2xl">Tus Productos
@@ -47,9 +47,9 @@ export const CartList = () => {
 
                     <div className="mx-auto mt-8 max-w-4xl flex-1 space-y-6 lg:mt-0 lg:w-full">
                         <div className="space-y-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm sm:p-6">
-                            <p className="text-xl font-semibold text-gray-900">Resumen ({totalProducts} Productos)
+                            <span className="text-xl font-semibold text-gray-900">Resumen ({totalProducts} Productos)
                                 <div className="border-b-4 border-cyan-400 mt-2 w-12"></div>
-                            </p>
+                            </span>
 
                             <div className="space-y-4">
                                 <div className="space-y-2">
@@ -68,6 +68,6 @@ export const CartList = () => {
                 </div>
             </div>
         </section>
-        </>
+        
     )
 }
