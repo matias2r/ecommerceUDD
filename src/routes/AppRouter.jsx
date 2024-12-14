@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom"
-import { HomePage, AboutPage, ProductsPage } from "../pages"
+import { HomePage, LoginPage, CartPage } from "../pages"
 import { Navbar, Header, Footer } from "../components"
-import { CartPage } from "../pages/CartPage"
-import { LoginPage } from "../pages/LoginPage"
+import { PrivateRoute } from "./PrivateRoute"
+import { ProductDetail } from "../components/products/ProductDetail"
 
 
 export const AppRouter = () => {
@@ -12,10 +12,16 @@ export const AppRouter = () => {
             <Navbar />
             <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="/cart" element={<CartPage />} />
-                <Route path="/product" element={<ProductsPage />} />
+                <Route path="/product/:id" element={<ProductDetail />} />
                 <Route path="/login" element={<LoginPage />} />
+                <Route 
+                    path="/cart" 
+                    element={
+                        <PrivateRoute>
+                            <CartPage />
+                        </PrivateRoute>
+                    } 
+                />
             </Routes>
             <Footer />
         </>

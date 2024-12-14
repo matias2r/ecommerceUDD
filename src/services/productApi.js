@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL_BASE = "https://fakestoreapi.com/";
+const URL_BASE = "https://fakestoreapi.com";
 
 const apiProductsClients = axios.create({
     baseURL: URL_BASE
@@ -15,5 +15,19 @@ export const getAllProducts = async () => {
         
     }
 }
+
+export const getProductById = async (id) => {
+    try {
+        const response = await fetch(`${URL_BASE}/products/${id}`);
+        if (!response.ok) {
+            throw new Error('Error al obtener el producto');
+        }
+        const product = await response.json();
+        return product;
+    } catch (error) {
+        throw new Error('Error al obtener el producto');
+    }
+};
+
 
 

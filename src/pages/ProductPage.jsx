@@ -1,4 +1,4 @@
-export const ProductsPage = () => {
+export const ProductPage = () => {
 
 
         return (

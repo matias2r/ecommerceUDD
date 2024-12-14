@@ -12,6 +12,7 @@ export const LoginForm = () => {
   });
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
 
   const handleChange = (event) => {
     setCredentials({
@@ -25,7 +26,10 @@ export const LoginForm = () => {
 
     try {
       await login(credentials);
-      navigate("/");
+      setSuccessMessage("Inicio de sesión exitoso. Redireccionando...");
+      setTimeout(() => {
+        navigate("/cart"); // Redirecciona después de mostrar el mensaje
+      }, 3000); // Mensaje de éxito se muestra durante 3 segundos
     } catch (error) {
       setError(`Error al iniciar Sesión. Verifica tus credenciales. ERROR: ${error}`);
     }
@@ -132,7 +136,7 @@ export const LoginForm = () => {
                       Contraseña
                     </label>
                     <a
-                      href="auth-forgot-password-basic.html"
+                      
                       className="cursor-pointer text-indigo-500 no-underline hover:text-indigo-500"
                     >
                       <small className="">Olvidé mi contraseña</small>
@@ -141,7 +145,7 @@ export const LoginForm = () => {
                   <div className="relative flex w-full flex-wrap items-stretch">
                     <input
                       className="relative block flex-auto cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow"
-                      type={showPassword ? "text" : "password"} // Cambia el tipo dependiendo del estado
+                      type={showPassword ? "text" : "password"}
                       name="password"
                       id="password"
                       placeholder="**********"
@@ -163,7 +167,7 @@ export const LoginForm = () => {
                         >
                           <path
                             fillRule="evenodd"
-                            d="M10 3a7 7 0 014.915 11.908l1.072 1.072a9 9 0 10-12.186 0l1.072-1.072A7 7 0 0110 3z"
+                            d="M10 3a7 7 0 014.915 11.908l1.072 1.072a9 9 0 10-12.186 0l1.072-1.072A7 7 0 01110 3z"
                             clipRule="evenodd"
                           />
                           <path d="M10 5a5 5 0 00-4.47 7.539l.473.473a5 5 0 006.594 0l.473-.473A5 5 0 0010 5z" />
@@ -177,7 +181,7 @@ export const LoginForm = () => {
                         >
                           <path
                             fillRule="evenodd"
-                            d="M10 3a7 7 0 014.915 11.908l1.072 1.072a9 9 0 10-12.186 0l1.072-1.072A7 7 0 0110 3z"
+                            d="M10 3a7 7 0 014.915 11.908l1.072 1.072a9 9 0 10-12.186 0l1.072-1.072A7 7 0 01110 3z"
                             clipRule="evenodd"
                           />
                           <path
@@ -192,6 +196,11 @@ export const LoginForm = () => {
                 </div>
                 <div className="mb-4">
                   {error && <div className="mb-5"><ErrorLogin /></div>}
+                  {successMessage && (
+                    <div className="mb-5">
+                      <div className="text-green-600 text-center font-semibold">{successMessage}</div>
+                    </div>
+                  )}
                   <button
                     className="grid w-full cursor-pointer select-none rounded-md border border-indigo-500 bg-indigo-500 py-2 px-5 text-center align-middle text-sm text-white shadow hover:border-indigo-600 hover:bg-indigo-600 hover:text-white focus:border-indigo-600 focus:bg-indigo-600 focus:text-white focus:shadow-none"
                     type="submit"
@@ -200,6 +209,9 @@ export const LoginForm = () => {
                   </button>
                 </div>
               </form>
+            </div>
+            <div className="border-t border-indigo-200 text-center px-4 py-2 text-sm text-gray-600">
+              &copy; 2024 Todos los derechos reservados
             </div>
           </div>
         </div>

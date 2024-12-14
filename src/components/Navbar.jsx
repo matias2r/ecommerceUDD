@@ -34,7 +34,6 @@ export const Navbar = () => {
                 <button onClick={logout} className="text-center text-white transition relative rounded-full p-2 px-3">
                   <div className="text-2xl">
                     <i className="fa-solid fa-sign-out"></i>
-                    <Link to="/cart">{user.email}</Link>
                   </div>
                 </button>
               )

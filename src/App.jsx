@@ -1,5 +1,5 @@
 import { AppRouter } from "./routes/AppRouter"
-import { CartProvider } from "./context/Cart/CartGlobalState"
+import { CartProvider } from "./context/Cart/cartGlobalState"
 import { AuthProvider } from "./context/User/UserGlobalState"
 
 

@@ -1,10 +1,12 @@
 import { HomePage } from './HomePage';
-import { AboutPage } from './AboutPage';
-import { ProductsPage } from './ProductsPage';
+import { ProductPage } from './ProductPage';
+import { CartPage } from './CartPage';
+import { LoginPage } from './LoginPage';
 
 
 export {
     HomePage,
-    AboutPage,
-    ProductsPage
+    ProductPage,
+    CartPage,
+    LoginPage
 }
