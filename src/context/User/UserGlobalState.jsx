@@ -1,7 +1,9 @@
-import { useReducer } from "react"
+import { useEffect, useReducer } from "react"
 import { authenticate, registerUser } from "../../services/userApi";
 import { AuthContext } from "./userContext";
 import { AuthReducer } from "./userReducer";
+import { GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
+import { auth } from "../../config/firebase.config";
 
 const initialState = {
     user: null,
@@ -11,6 +13,18 @@ const initialState = {
 export const AuthProvider = ({ children }) => {
 
     const [ state, dispatch ] = useReducer(AuthReducer, initialState);
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        const user = JSON.parse(localStorage.getItem('user'));
+
+        if(token && user) {
+            dispatch({
+                type: 'LOGIN_USER',
+                payload: { user, token }
+            })
+        }
+    }, [])
 
 
     const register = async(userData) => {
@@ -70,6 +84,8 @@ export const AuthProvider = ({ children }) => {
     const logout = async() => {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
+
+        await signOut(auth);
 
         dispatch({ type: 'LOGOUT_USER' })
     }

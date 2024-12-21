@@ -15,7 +15,7 @@ export const ProductList = () => {
         {products.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 p-4">
                 {products.map((product) => (
-                    <ProductItem product={product} key={product.id} />
+                    <ProductItem product={product} key={product._id} />
                 ))}
             </div>
         ) : (

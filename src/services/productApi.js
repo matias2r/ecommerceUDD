@@ -1,33 +1,29 @@
 import axios from 'axios';
 
-const URL_BASE = "https://fakestoreapi.com";
+const URL_BASE = "http://localhost:3000/api";
 
 const apiProductsClients = axios.create({
     baseURL: URL_BASE
-})
+});
 
-
+// Obtener todos los productos
 export const getAllProducts = async () => {
     try {
-        const { data } = await apiProductsClients.get('/products/category/electronics')
-        return data
+        const { data } = await apiProductsClients.get('/product/readall');
+        return data;
     } catch (error) {
-        
-    }
-}
-
-export const getProductById = async (id) => {
-    try {
-        const response = await fetch(`${URL_BASE}/products/${id}`);
-        if (!response.ok) {
-            throw new Error('Error al obtener el producto');
-        }
-        const product = await response.json();
-        return product;
-    } catch (error) {
-        throw new Error('Error al obtener el producto');
+        console.error('Error al obtener todos los productos:', error);
+        throw new Error('Error al obtener todos los productos');
     }
 };
 
-
-
+// Obtener producto por ID
+export const getProductById = async (id) => {
+    try {
+        const { data } = await apiProductsClients.get(`/product/readone/${id}`);
+        return data;
+    } catch (error) {
+        console.error(`Error al obtener el producto con ID ${id}:`, error);
+        throw new Error('Error al obtener el producto');
+    }
+};

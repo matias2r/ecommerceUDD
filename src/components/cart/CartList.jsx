@@ -7,9 +7,9 @@ import emptyCart from '../../assets/emptyCart.svg'
 export const CartList = () => {
     const { cart, clearCart } = useContext(CartContext)
     
-    const total = cart.reduce((accum, product) => accum + product.price * product.quantity, 0)
+    const total = cart.reduce((accum, product) => accum + product.precio * product.quantity, 0)
 
-    const totalTrans = cart.reduce((accum, product) => accum + product.price * product.quantity * 0.96, 0)
+    const totalTrans = cart.reduce((accum, product) => accum + product.precio * product.quantity * 0.96, 0)
 
     const totalProducts = cart.reduce((accum, product) => accum + product.quantity, 0);
 

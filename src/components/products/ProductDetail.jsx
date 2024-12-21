@@ -42,25 +42,20 @@ export const ProductDetail = () => {
                     <div className="lg:flex lg:items-start">
                     <div className="lg:order-2 lg:ml-5">
                         <div className="max-w-xl overflow-hidden rounded-lg">
-                        <img className="h-[350px] w-full max-w-full object-cover" src={product.image} alt={product.title} />
+                        <img className="h-[350px] w-full max-w-full object-cover" src={product.imagen} alt={product.nombre} />
                         </div>
                     </div>
                     </div>
                 </div>
 
                 <div className="lg:col-span-2 lg:row-span-2 lg:row-end-2">
-                    <h1 className="sm: text-2xl font-bold text-gray-900 sm:text-3xl">{product.title}</h1>
+                    <h1 className="sm: text-2xl font-bold text-gray-900 sm:text-3xl">{product.nombre}</h1>
 
-                    <div className="mt-5 flex items-center">
-                    <p className="ml-2 text-sm font-medium hover:text-indigo-500 cursor-pointer">Rating: {product.rating.rate}</p>
-                    <p className="ml-2 text-sm font-medium hover:text-indigo-500 cursor-pointer">Reviews: {product.rating.count}</p>
-                    </div>
-
-                    <h2 className="mt-8 text-base text-gray-900">Categoria: <span className='font-semibold text-gray-900 hover:text-indigo-500 transition cursor-pointer'>{product.category}</span></h2>
+                    <h2 className="mt-8 text-base text-gray-900">Categoria: <span className='font-semibold text-gray-900 hover:text-indigo-500 transition cursor-pointer'>{product.categoria}</span></h2>
 
                     <div className="mt-10 flex flex-col items-center justify-between space-y-4 border-t border-b py-4 sm:flex-row sm:space-y-0">
                     <div className="flex items-end">
-                        <h1 className="text-3xl font-bold">${product.price}</h1>
+                        <h1 className="text-3xl font-bold">${product.precio}</h1>
                     </div>
                     
 
@@ -97,8 +92,8 @@ export const ProductDetail = () => {
                     </div>
 
                     <div className="flow-root sm:mt-12">
-                    <h1 className="text-xl font-bold">{product.title}</h1>
-                    <p className="mt-4">{product.description}</p>
+                    <h1 className="text-xl font-bold">{product.nombre}</h1>
+                    <p className="mt-4">{product.descripcion}</p>
                     </div>
                 </div>
                 </div>
